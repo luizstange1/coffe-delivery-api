@@ -1,2 +1,3 @@
 export { getProducts } from "./get-products";
-export { createProducts } from "./create-products";
+export { createProduct } from "./create-product";
+export { deleteProduct } from "./delete-product";

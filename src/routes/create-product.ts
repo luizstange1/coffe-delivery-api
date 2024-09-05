@@ -14,7 +14,7 @@ interface MulterS3File extends Express.Multer.File {
   location: string;
 }
 
-export function createProducts(): Router {
+export function createProduct(): Router {
   const router = Router();
   const upload = multer({
     storage: storageTypes.s3,

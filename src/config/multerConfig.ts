@@ -1,5 +1,4 @@
 import { S3Client } from "@aws-sdk/client-s3";
-import aws from "aws-sdk";
 import crypto from "crypto";
 import multer from "multer";
 import multerS3 from "multer-s3";
