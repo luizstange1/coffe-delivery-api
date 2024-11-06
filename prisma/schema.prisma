@@ -17,3 +17,14 @@ model Product {
 
   @@map("products")
 }
+
+model User {
+  id               String  @id @default(uuid())
+  name             String
+  surname          String
+  email            String
+  password         String
+  is_administrator Boolean @default(false)
+
+  @@map("users")
+}
