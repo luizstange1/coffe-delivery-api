@@ -4,7 +4,7 @@ import { prisma } from "../lib/prisma";
 export function getUsers() {
   const router = Router();
 
-  router.get("/user", async (req, res) => {
+  router.get("/usuario", async (req, res) => {
     try {
       const users = await prisma.user.findMany({
         select: {

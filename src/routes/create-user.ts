@@ -12,7 +12,7 @@ interface userProps {
 export function createUser() {
   const router = Router();
 
-  router.post("/user/register", async (req, res) => {
+  router.post("/usuario/cadastro", async (req, res) => {
     const { name, surname, email, password } = req.body as userProps;
     const handleCheckUserExists = await prisma.user.findFirst({
       where: {

@@ -4,16 +4,16 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { authenticateToken } from "../middleware/authenticateToken";
 
-interface loginUserProps {
+interface userLoginProps {
   email: string;
   password: string;
 }
 
-export function loginUser() {
+export function userLogin() {
   const router = Router();
 
   router.post("/auth/login", async (req, res) => {
-    const { email, password } = req.body as loginUserProps;
+    const { email, password } = req.body as userLoginProps;
     const getUser = await prisma.user.findFirst({ where: { email: email } });
 
     if (getUser) {
