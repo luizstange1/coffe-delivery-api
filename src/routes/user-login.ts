@@ -25,7 +25,7 @@ export function userLogin() {
           const token = jwt.sign({ id: getUser.id }, secret);
 
           res.status(200).json({
-            msg: "Usuário autenticado com sucesso",
+            message: "Usuário autenticado com sucesso",
             id: getUser.id,
             token,
           });
@@ -33,10 +33,10 @@ export function userLogin() {
           console.log(error);
         }
       } else {
-        res.status(401).json({ msg: "A senha está incorreta" });
+        res.status(401).json({ message: "Usuário ou senha incorretos" });
       }
     } else {
-      res.status(404).json({ msg: "Usuário não encontrado." });
+      res.status(404).json({ message: "Usuário ou senha incorretos" });
     }
   });
 

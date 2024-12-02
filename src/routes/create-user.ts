@@ -12,7 +12,7 @@ interface userProps {
 export function createUser() {
   const router = Router();
 
-  router.post("/usuario/cadastro", async (req, res) => {
+  router.post("/user/register", async (req, res) => {
     const { name, surname, email, password } = req.body as userProps;
     const handleCheckUserExists = await prisma.user.findFirst({
       where: {
@@ -41,7 +41,7 @@ export function createUser() {
     } else {
       res
         .status(409)
-        .json({ msg: "O email informado já existe em outra conta." });
+        .json({ message: "O email informado já existe em outra conta." });
     }
   });
 
