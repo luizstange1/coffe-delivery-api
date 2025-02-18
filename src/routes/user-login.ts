@@ -43,9 +43,7 @@ export function userLogin() {
   router.get("/admin/:id", authenticateToken, async (req, res) => {
     const id = req.params.id;
     const user = await prisma.user.findUnique({
-      where: {
-        id,
-      },
+      where: { id },
       select: {
         id: true,
         name: true,
