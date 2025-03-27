@@ -1,8 +1,11 @@
-import multer, { memoryStorage } from 'multer';
+import multer from 'multer';
 import { Router } from 'express';
 import { storageTypes } from '../config/multerConfig';
-import { createProductController } from '../modules/products/useCases/createProduct';
-import { listProductsController } from '../modules/products/useCases/listProducts';
+import {
+  createProductController,
+  deleteProductController,
+  listProductsController,
+} from '../modules/products/useCases';
 
 export const productsRoutes = Router();
 
@@ -17,4 +20,8 @@ productsRoutes.post('/products', upload.single('file'), (req, res) => {
 
 productsRoutes.get('/products', (req, res) => {
   return listProductsController.handle(req, res);
+});
+
+productsRoutes.delete('/products/:id', (req, res) => {
+  return deleteProductController.handle(req, res);
 });

@@ -7,7 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(routes.deleteProduct());
 app.use(routes.createUser());
 app.use(routes.getUserData());
 app.use(routes.userLogin());

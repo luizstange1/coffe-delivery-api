@@ -1,6 +1,5 @@
 import { ICreateProductDTO, IProductsRepository } from '../IProductsRepository';
 import { prisma } from '../../../../lib/prisma';
-import { Product } from '.prisma/client';
 
 export class ProductsRepository implements IProductsRepository {
   private static INSTANCE: ProductsRepository;
@@ -32,5 +31,25 @@ export class ProductsRepository implements IProductsRepository {
     });
 
     return products;
+  }
+
+  async delete(id: string) {
+    const products = await prisma.product.delete({
+      where: {
+        id,
+      },
+    });
+
+    return products;
+  }
+
+  async findById(id: string) {
+    const product = await prisma.product.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return product;
   }
 }

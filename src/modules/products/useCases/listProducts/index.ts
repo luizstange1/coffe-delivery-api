@@ -4,6 +4,6 @@ import { ListProductsUseCase } from './listProductsUseCase';
 
 const listProductsRepository = ProductsRepository.getInstance();
 const listProductsUseCase = new ListProductsUseCase(listProductsRepository);
-export const listProductsController = new ListProductsController(
-  listProductsUseCase
-);
+const listProductsController = new ListProductsController(listProductsUseCase);
+
+export { listProductsController };
