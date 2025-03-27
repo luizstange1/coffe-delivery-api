@@ -1,5 +1,4 @@
 import { Product } from '.prisma/client';
-import { String } from 'aws-sdk/clients/apigateway';
 
 export interface ICreateProductDTO {
   name: string;
