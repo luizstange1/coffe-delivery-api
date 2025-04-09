@@ -15,4 +15,17 @@ export class UsersRepository implements IUsersRepository {
   async create(data: ICreateUserDTO) {
     return await prisma.user.create({ data });
   }
+
+  async getUserData(id: string) {
+    const user = await prisma.user.findUnique({
+      where: { id },
+      select: {
+        name: true,
+        surname: true,
+        is_administrator: true,
+      },
+    });
+
+    return user;
+  }
 }
